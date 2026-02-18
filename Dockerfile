@@ -1,8 +1,7 @@
 FROM golang:1.24-alpine
 WORKDIR /app
-COPY go.mod go.sum ./
-RUN go mod tidy
 COPY . .
+RUN go mod tidy
 RUN go build -o hifi-proxy .
 EXPOSE 8080
 CMD ["./hifi-proxy"]
